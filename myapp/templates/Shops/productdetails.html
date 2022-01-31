@@ -1,0 +1,32 @@
+{% extends 'Shops/Basic.html' %}
+{% block title %} {{product.Product_name}} {% endblock %}
+{% block Css %}
+{% endblock %}
+{% block body %}
+{% for i in data %}
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <img src="/media//{{i.image}}" width="310px" height="385px">
+                {% if i.quantities != 0 %}
+                <span id="divpr{{i.id}}" class="divpr">
+                    <button id=pr{{i.id}} class="btn btn-primary cart">Add to cart</button>
+                </span>
+                <a href="/shop/Checkout"><button id="qv{{i.id}}" class="btn btn-primary mt=200px">Buy_now</button></a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h5 id="namepr{{i.id}}">{{i.Product_name}}</h5>
+            <p>{{i.Product_desc}}</p>
+            {% if i.quantities == 0 %}
+            <h5><code>Sorry!dear coustomer Now we can not have avalible the quantities of it product</code></h5>
+            {% endif %}
+            <h5 class="card-title">Price:<span id="pricepr{{i.id}}">{{i.Price}}</span></h5>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+{% block js %}{% endblock %}

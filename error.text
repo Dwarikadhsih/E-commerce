@@ -1,0 +1,4 @@
+First wright it in command
+pip install -r requirements.txt
+ImportError: Couldn't import Django(Add this command in Django)
+deactivate

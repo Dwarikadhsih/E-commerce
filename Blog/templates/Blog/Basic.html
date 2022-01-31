@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>{% block title %}Welcome ! into My Awesome Cart{% endblock %}</title>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0"
+        nonce="hFBoRCoy"></script>
+    <style>
+        .col-md-3 {
+            display: inline-block;
+            margin-left: -4px;
+        }
+
+        body {
+            background-color: rgb(192, 192, 192);
+        }
+
+        .carousel-indicators .active {
+            background-color: rgb(83, 83, 146);
+        }
+
+        .container {
+            background-color: rgb(171, 228, 230);
+        }
+
+        .col-md-3 img {
+            max-width: 12rem;
+            height: 13rem;
+        }
+
+        body .carousel-indicator li {
+            background-color: blue;
+        }
+
+        body .carousel-indicators {
+            bottom: 0;
+        }
+
+        .btn {
+            margin-left: 20px;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            top: auto;
+            bottom: auto;
+            margin-top: 200px;
+            margin-bottom: 200px;
+        }
+
+        .top-content.carousel-control-prev {
+            color: red;
+        }
+
+        .carousel-control-prev-icon:hover,
+        .carousel-control-next-icon:hover {
+            height: 100px;
+            width: 100px;
+            outline: rgb(163, 45, 45);
+            background-color: black;
+            background-size: 100%, 100%;
+            border-radius: 50%;
+            border: 1px solid black;
+            color: red;
+        }
+
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            margin: 4px;
+        }
+
+        body .no-padding {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    </style>
+    {% block Css %}
+    {% endblock %}
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/shop">My Awesome Cart</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/shop/about">About us</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/blog/">Blog</a>
+                </li>
+                <!-- <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li> -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="/shop/Contact" tabindex="-1" aria-disabled="true">Contact us</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/shop/tracker" tabindex="-1" aria-disabled="true">Tracker</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0 " method="POST" action="/shop/search/">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search"
+                    name="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <button type="button" class="btn btn-lg btn-danger mx-2" data-bs-toggle="popover" title="Cart" id="popcart"
+                data-html="true" data-bs-content="And here's some amazing content. It's very engaging. Right?">
+                Cart(<span id="cart">0</span>) </button>
+        </div>
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    {% block js %}
+    {% endblock %}
+</body>
+
+</html>
